@@ -6,12 +6,12 @@
 /*   By: adriencombier <adriencombier@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 18:18:04 by adriencombi       #+#    #+#             */
-/*   Updated: 2025/11/18 22:06:05 by adriencombi      ###   ########.fr       */
+/*   Updated: 2025/11/19 11:43:19 by adriencombi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <unistd.h>
+
+#include "ft_printf.h"
 
 int ft_printf(const char *format, ...)
 {
@@ -21,6 +21,8 @@ int ft_printf(const char *format, ...)
     char c;
     char *str;
     int j;
+    int n;
+    unsigned int    u;
     
     int count; 
     count = 0;
@@ -31,7 +33,7 @@ int ft_printf(const char *format, ...)
     {
         if(format[i] == '%' && format[i + 1] == 'c')
         {
-            char c = va_arg(args, int);
+            c = va_arg(args, int);
             write(1, &c, 1);
             count++;
             i += 2;
@@ -41,13 +43,20 @@ int ft_printf(const char *format, ...)
             str = va_arg(args, char *);
             if(!str)
                 str = "(null)";
-            j = 0;
-            while(str[j])
-            {
-                write(1, &str[j], 1);
-                count++;
-                j++;
-            }
+            ft_putstr_fd(str, 1);
+            count += ft_strlen(str);
+            i += 2;
+        }
+        else if (format[i] == '%' && (format[i + 1] == 'd' || format[i + 1] == 'i'))
+        {
+            n = va_arg(args, int);
+            count += ft_putnbr(n);
+            i += 2;
+        }
+        else if (format[i] == '%' && format[i + 1] == 'u')
+        {
+            u = va_arg(args, unsigned int);
+            count += ft_putnbr_unsigned(u);
             i += 2;
         }
         else

@@ -1,19 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_char.c                                    :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adriencombier <adriencombier@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/18 18:45:15 by adriencombi       #+#    #+#             */
-/*   Updated: 2025/11/19 10:30:29 by adriencombi      ###   ########.fr       */
+/*   Created: 2025/11/19 09:50:06 by adriencombi       #+#    #+#             */
+/*   Updated: 2025/11/19 10:43:39 by adriencombi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_print_char(char c)
+int ft_putnbr(int n)
 {
-    ft_putchar_fd(c, 1);
-    return (1);
+    char digit;
+    int count;
+
+    count = 0;
+    if(n == -2147483648)
+    {
+        write(1, "-2147483648", 11);
+        return (11);
+    }
+    if(n < 0)
+    {
+        write(1, "-", 1);
+        count++;
+        n *= -1;
+    }
+    if(n > 9)
+    {
+      count += ft_putnbr(n / 10);
+    }
+    digit = n % 10 + '0';
+    write(1, &digit, 1);
+    return (count + 1);
 }
