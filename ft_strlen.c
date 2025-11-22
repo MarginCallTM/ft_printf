@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adriencombier <adriencombier@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/18 18:17:59 by adriencombi       #+#    #+#             */
-/*   Updated: 2025/11/18 18:34:07 by adriencombi      ###   ########.fr       */
+/*   Created: 2025/11/22 17:00:31 by adriencombi       #+#    #+#             */
+/*   Updated: 2025/11/22 17:02:56 by adriencombi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void    ft_putchar_fd(char c, int fd)
+size_t  ft_strlen(char *str)
 {
-    write(fd, &c, 1);
+    size_t  i;
+
+    i = 0;
+    while(str[i])
+    {
+        i++;
+    }
+    
+    return (i);
 }

@@ -6,7 +6,7 @@
 /*   By: adriencombier <adriencombier@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 18:44:03 by adriencombi       #+#    #+#             */
-/*   Updated: 2025/11/18 18:54:01 by adriencombi      ###   ########.fr       */
+/*   Updated: 2025/11/22 17:35:20 by adriencombi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int ft_print_str(char *str)
     
     while(str[i])
     {
-        ft_putchar_fd(str[i], 1);
+        write(1, &str[i], 1);
         i++;
     }
     return (i);

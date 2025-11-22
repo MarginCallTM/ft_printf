@@ -6,14 +6,7 @@
 /*   By: adriencombier <adriencombier@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 18:45:15 by adriencombi       #+#    #+#             */
-/*   Updated: 2025/11/19 10:30:29 by adriencombi      ###   ########.fr       */
+/*   Updated: 2025/11/22 17:43:20 by adriencombi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
-int ft_print_char(char c)
-{
-    ft_putchar_fd(c, 1);
-    return (1);
-}

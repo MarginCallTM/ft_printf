@@ -6,7 +6,7 @@
 /*   By: adriencombier <adriencombier@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 18:18:01 by adriencombi       #+#    #+#             */
-/*   Updated: 2025/11/19 10:42:50 by adriencombi      ###   ########.fr       */
+/*   Updated: 2025/11/22 17:43:27 by adriencombi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 #include <stdarg.h>
 
 int ft_printf(const char *format, ...);
-void    ft_putchar_fd(char c, int fd);
-void    ft_putstr_fd(char *str, int fd);
+void    ft_putstr(char *str);
 int ft_print_str(char *str);
-int ft_print_char(char c);
 int ft_putnbr(int n);
+size_t  ft_strlen(char *str);
+int ft_putnbr_unsigned(unsigned int n);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: adriencombier <adriencombier@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 18:17:55 by adriencombi       #+#    #+#             */
-/*   Updated: 2025/11/19 11:25:29 by adriencombi      ###   ########.fr       */
+/*   Updated: 2025/11/22 16:58:40 by adriencombi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int main(void)
 
     ft_printf("ticker: %s\nValue : %d\n", "BTC", 90000);
     ft_printf("ticker: %s\nValue : %i\n", "Neet", 10);
+
+    ft_printf("Agent %u\n", 445641);
 
     return (0);
 }

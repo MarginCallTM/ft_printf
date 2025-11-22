@@ -6,7 +6,7 @@
 /*   By: adriencombier <adriencombier@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 18:18:04 by adriencombi       #+#    #+#             */
-/*   Updated: 2025/11/19 11:43:19 by adriencombi      ###   ########.fr       */
+/*   Updated: 2025/11/22 17:32:38 by adriencombi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int ft_printf(const char *format, ...)
     i = 0;
     char c;
     char *str;
-    int j;
     int n;
     unsigned int    u;
     
@@ -43,7 +42,7 @@ int ft_printf(const char *format, ...)
             str = va_arg(args, char *);
             if(!str)
                 str = "(null)";
-            ft_putstr_fd(str, 1);
+            ft_putstr(str);
             count += ft_strlen(str);
             i += 2;
         }
