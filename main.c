@@ -6,7 +6,7 @@
 /*   By: adriencombier <adriencombier@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 18:17:55 by adriencombi       #+#    #+#             */
-/*   Updated: 2025/11/22 16:58:40 by adriencombi      ###   ########.fr       */
+/*   Updated: 2025/11/24 09:31:46 by adriencombi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,9 @@
 
 int main(void)
 {
-    /*ft_putchar_fd('g', 1);
-    ft_putstr_fd("\nHello world.\n", 1);
+    unsigned int    n;
 
-    ft_print_str("Miami looks good\n");
-    ft_print_char('m');*/
+    n = 305441741;
 
     ft_printf("Lettre : %c\n", 'Z');
     ft_printf("Prenom : %s\n", "Adrien");
@@ -32,7 +30,15 @@ int main(void)
     ft_printf("ticker: %s\nValue : %d\n", "BTC", 90000);
     ft_printf("ticker: %s\nValue : %i\n", "Neet", 10);
 
-    ft_printf("Agent %u\n", 445641);
+    ft_printf("Agent %u\n", 4294967295);
+
+    ft_printf("Hexa base 16 value %x\n", 42);
+
+    ft_printf("Hexa base 16 value %x\n", n);
+    ft_printf("Hexa base 16 value %X\n", n);
+
+    ft_printf("Hexa base 16 value %x\n", 0);
+    ft_printf("Hexa base 16 value %X\n", 42);
 
     return (0);
 }

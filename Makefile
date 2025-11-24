@@ -5,6 +5,7 @@ SRC = ft_printf.c \
  ft_putnbr.c \
  ft_strlen.c \
  ft_putnbr_unsigned.c \
+ ft_putnbr_base.c \
  main.c \
 
 OBJ = $(SRC:.c=.o)
