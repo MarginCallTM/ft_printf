@@ -3,24 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adriencombier <adriencombier@student.42    +#+  +:+       +#+        */
+/*   By: acombier <acombier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/22 17:00:31 by adriencombi       #+#    #+#             */
-/*   Updated: 2025/11/22 17:02:56 by adriencombi      ###   ########.fr       */
+/*   Updated: 2025/11/24 11:44:01 by acombier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t  ft_strlen(char *str)
+size_t	ft_strlen(char *str)
 {
-    size_t  i;
+	size_t i;
 
-    i = 0;
-    while(str[i])
-    {
-        i++;
-    }
-    
-    return (i);
+	i = 0;
+	while (str[i])
+	{
+		i++;
+	}
+
+	return (i);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adriencombier <adriencombier@student.42    +#+  +:+       +#+        */
+/*   By: acombier <acombier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 18:18:04 by adriencombi       #+#    #+#             */
-/*   Updated: 2025/11/24 09:30:57 by adriencombi      ###   ########.fr       */
+/*   Updated: 2025/11/24 11:20:01 by acombier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int ft_printf(const char *format, ...)
     int di;
     unsigned int x;
     unsigned int    u;
+    void    *ptr;
     
     int count; 
     count = 0;
@@ -63,6 +64,18 @@ int ft_printf(const char *format, ...)
         {
             x = va_arg(args, unsigned int);
             count += ft_putnbr_base(x, format[i + 1]);
+            i += 2;
+        }
+        else if (format[i] == '%' && format[i + 1] == 'p')
+        {
+            ptr = va_arg(args, void *);
+            count += ft_putAddress(ptr);
+            i += 2;
+        }
+        else if (format[i] == '%' && format[i + 1] == '%')
+        {
+            write(1, "%%", 1);
+            count ++;
             i += 2;
         }
         else

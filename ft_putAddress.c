@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putAddress.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acombier <acombier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/18 18:18:01 by adriencombi       #+#    #+#             */
-/*   Updated: 2025/11/24 11:45:34 by acombier         ###   ########.fr       */
+/*   Created: 2025/11/24 10:47:51 by acombier          #+#    #+#             */
+/*   Updated: 2025/11/24 11:50:29 by acombier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <stdarg.h>
-# include <unistd.h>
+int	ft_putAddress(void *ptr)
+{
+	unsigned long address;
+	int count;
 
-int		ft_printf(const char *format, ...);
-void	ft_putstr(char *str);
-int		ft_print_str(char *str);
-int		ft_putnbr(int n);
-size_t	ft_strlen(char *str);
-int		ft_putnbr_unsigned(unsigned int n);
-int		ft_putnbr_base(unsigned long n, char format);
-int		ft_putAddress(void *ptr);
+	count = 0;
+	address = (unsigned long)ptr;
 
-#endif
+	if (!ptr)
+		return (write(1, "(nil)", 5));
+
+	write(1, "0x", 2);
+	count += 2;
+	count += ft_putnbr_base(address, 'x');
+
+	return (count);
+}
