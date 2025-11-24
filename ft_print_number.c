@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_unsigned.c                               :+:      :+:    :+:   */
+/*   ft_print_number.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acombier <acombier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/19 11:39:06 by adriencombi       #+#    #+#             */
-/*   Updated: 2025/11/24 16:25:23 by acombier         ###   ########.fr       */
+/*   Created: 2025/11/24 12:58:01 by acombier          #+#    #+#             */
+/*   Updated: 2025/11/24 16:33:03 by acombier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putnbr_unsigned(unsigned int n)
+int	ft_print_number(va_list args, char type)
 {
-	char	digit;
-	int		count;
-
-	count = 0;
-	if (n < 0)
-	{
-		write(1, "-", 1);
-		count++;
-		n *= -1;
-	}
-	if (n > 9)
-	{
-		count += ft_putnbr_unsigned(n / 10);
-	}
-	digit = n % 10 + '0';
-	write(1, &digit, 1);
-	return (count + 1);
+	if (type == 'd' || type == 'i')
+		return (ft_putnbr(va_arg(args, int)));
+	if (type == 'u')
+		return (ft_putnbr_unsigned(va_arg(args, unsigned int)));
+	if (type == 'x' || type == 'X')
+		return (ft_putnbr_base(va_arg(args, unsigned int), type));
+	return (0);
 }

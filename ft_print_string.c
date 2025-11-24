@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putAddress.c                                    :+:      :+:    :+:   */
+/*   ft_print_string.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acombier <acombier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/24 10:47:51 by acombier          #+#    #+#             */
-/*   Updated: 2025/11/24 11:50:29 by acombier         ###   ########.fr       */
+/*   Created: 2025/11/24 13:20:25 by acombier          #+#    #+#             */
+/*   Updated: 2025/11/24 16:33:41 by acombier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putAddress(void *ptr)
+int	ft_print_string(va_list args, char type)
 {
-	unsigned long address;
-	int count;
+	char	c;
+	char	*str;
 
-	count = 0;
-	address = (unsigned long)ptr;
-
-	if (!ptr)
-		return (write(1, "(nil)", 5));
-
-	write(1, "0x", 2);
-	count += 2;
-	count += ft_putnbr_base(address, 'x');
-
-	return (count);
+	if (type == 'c')
+	{
+		c = va_arg(args, int);
+		ft_putchar(c);
+		return (1);
+	}
+	if (type == 's')
+	{
+		str = va_arg(args, char *);
+		if (!str)
+			str = "(null)";
+		ft_putstr(str);
+		return (ft_strlen(str));
+	}
+	return (0);
 }

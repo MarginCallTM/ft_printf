@@ -6,7 +6,7 @@
 /*   By: acombier <acombier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 18:18:01 by adriencombi       #+#    #+#             */
-/*   Updated: 2025/11/24 11:45:34 by acombier         ###   ########.fr       */
+/*   Updated: 2025/11/24 16:28:01 by acombier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,22 @@
 # include <stdarg.h>
 # include <unistd.h>
 
-int		ft_printf(const char *format, ...);
-void	ft_putstr(char *str);
-int		ft_print_str(char *str);
+// utils
+
+int		ft_putchar(char c);
+int		ft_putstr(char *str);
+size_t	ft_strlen(const char *str);
 int		ft_putnbr(int n);
-size_t	ft_strlen(char *str);
 int		ft_putnbr_unsigned(unsigned int n);
 int		ft_putnbr_base(unsigned long n, char format);
-int		ft_putAddress(void *ptr);
+int		ft_put_address(void *ptr);
+
+// format handlers
+int		ft_print_char(va_list args);
+int		ft_print_string(va_list args, char type);
+int		ft_print_number(va_list args, char type);
+int		ft_print_pointer(va_list args);
+int		ft_handle_format(char type, va_list args);
+int		ft_printf(const char *format, ...);
 
 #endif

@@ -1,34 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_unsigned.c                               :+:      :+:    :+:   */
+/*   ft_print_pointer.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acombier <acombier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/19 11:39:06 by adriencombi       #+#    #+#             */
-/*   Updated: 2025/11/24 16:25:23 by acombier         ###   ########.fr       */
+/*   Created: 2025/11/24 15:03:15 by acombier          #+#    #+#             */
+/*   Updated: 2025/11/24 16:33:30 by acombier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putnbr_unsigned(unsigned int n)
+int	ft_print_pointer(va_list args)
 {
-	char	digit;
-	int		count;
+	void	*ptr;
 
-	count = 0;
-	if (n < 0)
-	{
-		write(1, "-", 1);
-		count++;
-		n *= -1;
-	}
-	if (n > 9)
-	{
-		count += ft_putnbr_unsigned(n / 10);
-	}
-	digit = n % 10 + '0';
-	write(1, &digit, 1);
-	return (count + 1);
+	ptr = va_arg(args, void *);
+	return (ft_put_address(ptr));
 }

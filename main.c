@@ -6,11 +6,11 @@
 /*   By: acombier <acombier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 18:17:55 by adriencombi       #+#    #+#             */
-/*   Updated: 2025/11/24 11:46:19 by acombier         ###   ########.fr       */
+/*   Updated: 2025/11/24 16:26:05 by acombier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+/*#include "ft_printf.h"
 #include <stdio.h>
 #include <unistd.h>
 
@@ -62,4 +62,4 @@ int	main(void)
 	ft_printf("Pourcent %%\n");
 
 	return (0);
-}
+}*/

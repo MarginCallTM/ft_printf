@@ -1,13 +1,18 @@
 NAME = libftprintf.a
+
 SRC = ft_printf.c \
+ ft_putchar.c \
  ft_putstr.c \
- ft_print_str.c \
- ft_putnbr.c \
  ft_strlen.c \
+ ft_putnbr.c \
  ft_putnbr_unsigned.c \
  ft_putnbr_base.c \
  ft_putAddress.c \
- main.c \
+ ft_print_char.c \
+ ft_print_string.c \
+ ft_print_number.c \
+ ft_print_pointer.c \
+ ft_handle_format.c \
 
 OBJ = $(SRC:.c=.o)
 CC = cc
