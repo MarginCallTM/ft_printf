@@ -3,7 +3,7 @@ NAME = libftprintf.a
 SRC = ft_printf.c \
  ft_utils.c \
  ft_utils2.c \
- 
+
 OBJ = $(SRC:.c=.o)
 DEP = $(OBJ:.o=.d)
 CC = cc
@@ -28,3 +28,4 @@ fclean: clean
 re: fclean all
 
 -include $(DEP)
+.PHONY: all clean fclean re
