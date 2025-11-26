@@ -1,19 +1,9 @@
 NAME = libftprintf.a
 
 SRC = ft_printf.c \
- ft_putchar.c \
- ft_putstr.c \
- ft_strlen.c \
- ft_putnbr.c \
- ft_putnbr_unsigned.c \
- ft_putnbr_base.c \
- ft_put_address.c \
- ft_print_char.c \
- ft_print_string.c \
- ft_print_number.c \
- ft_print_pointer.c \
- ft_handle_format.c \
-
+ ft_utils.c \
+ ft_utils2.c \
+ 
 OBJ = $(SRC:.c=.o)
 DEP = $(OBJ:.o=.d)
 CC = cc

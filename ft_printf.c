@@ -6,7 +6,7 @@
 /*   By: acombier <acombier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 12:33:43 by acombier          #+#    #+#             */
-/*   Updated: 2025/11/26 14:30:51 by acombier         ###   ########.fr       */
+/*   Updated: 2025/11/26 14:46:13 by acombier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,20 @@ int	ft_handle_format(char type, va_list args)
 	return (1);
 }
 
+int	ft_put_address(void *ptr)
+{
+	unsigned long	address;
+	int				count;
+
+	count = 0;
+	address = (unsigned long)ptr;
+	if (!ptr)
+		return (write(1, "(nil)", 5));
+	write(1, "0x", 2);
+	count += 2;
+	count += ft_putnbr_base(address, 'x');
+	return (count);
+}
 
 int	ft_printf(const char *format, ...)
 {

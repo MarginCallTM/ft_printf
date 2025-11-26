@@ -6,7 +6,7 @@
 /*   By: acombier <acombier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 14:34:40 by acombier          #+#    #+#             */
-/*   Updated: 2025/11/26 14:36:55 by acombier         ###   ########.fr       */
+/*   Updated: 2025/11/26 14:45:50 by acombier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ int	ft_putnbr_base(unsigned long n, char format)
 	count++;
 	return (count);
 }
+
 int	ft_print_pointer(va_list args)
 {
 	void	*ptr;
@@ -72,10 +73,28 @@ int	ft_print_pointer(va_list args)
 	return (ft_put_address(ptr));
 }
 
-int	ft_print_pointer(va_list args)
+int	ft_putnbr(int n)
 {
-	void	*ptr;
+	char	digit;
+	int		count;
 
-	ptr = va_arg(args, void *);
-	return (ft_put_address(ptr));
+	count = 0;
+	if (n == -2147483648)
+	{
+		write(1, "-2147483648", 11);
+		return (11);
+	}
+	if (n < 0)
+	{
+		write(1, "-", 1);
+		count++;
+		n *= -1;
+	}
+	if (n > 9)
+	{
+		count += ft_putnbr(n / 10);
+	}
+	digit = n % 10 + '0';
+	write(1, &digit, 1);
+	return (count + 1);
 }
