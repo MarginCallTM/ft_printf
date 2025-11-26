@@ -7,7 +7,7 @@ SRC = ft_printf.c \
  ft_putnbr.c \
  ft_putnbr_unsigned.c \
  ft_putnbr_base.c \
- ft_putAddress.c \
+ ft_put_address.c \
  ft_print_char.c \
  ft_print_string.c \
  ft_print_number.c \
@@ -15,6 +15,7 @@ SRC = ft_printf.c \
  ft_handle_format.c \
 
 OBJ = $(SRC:.c=.o)
+DEP = $(OBJ:.o=.d)
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 AR = ar rcs
@@ -25,13 +26,15 @@ $(NAME): $(OBJ)
 	$(AR) $(NAME) $(OBJ)
 
 
-test: $(NAME)
-	$(CC) $(CFLAGS) main.c -L. -lftprintf -o test_printf
+%.o: %.c
+	$(CC) $(CFLAGS) -MMD -MF $*.d -c $< -o $@
 
 clean:
-	rm -rf $(OBJ)
+	rm -rf $(OBJ) $(DEP)
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+-include $(DEP)
